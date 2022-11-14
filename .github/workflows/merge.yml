@@ -2,8 +2,8 @@ name: Java CI with Maven
 
 on:
   pull_request:
-    types: [closed]
-
+    branches: [ master ]
+    
 jobs:
   build:
 
@@ -19,3 +19,10 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+
+    - uses: emibcn/badge-action@v1.2.1
+      with:
+        label: 'Test coverage'
+        status: '53.4%'
+        color: 'blue,555,daf'
+        path: '.github/badges/coverage.svg'
